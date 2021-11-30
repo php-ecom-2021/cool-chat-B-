@@ -20,8 +20,18 @@ Route::get('chat', function(){
     return view('chat', ['messages' => json_encode($messages)]);
 });
 
+Route::get('chat/{id}', function ($id){
+    // fetch messages if we want history
+    $messages = [];
+    return view('chat', 
+    [
+        'messages' => json_encode($messages),
+        'id' => $id
+    ]);
+});
+
 Route::post('broadcast', function(Request $request){
-    event(new \App\Events\Message($request->content, $request->user));
+    event(new \App\Events\Message($request->channelID, $request->content, $request->user));
     return 1;
 });
 

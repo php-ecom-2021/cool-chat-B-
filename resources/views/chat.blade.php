@@ -50,7 +50,7 @@
 </style>
 </head>
 <body>
-    
+    <p>{{ $id }} UPDATED</p>
 <div id="messages"></div>
 
 <div class="control">
@@ -92,7 +92,7 @@
     function sendMessage()
     {
         let query = document.querySelector('#query');
-        const data = { user: user.value, content: query.value  };
+        const data = { user: user.value, content: query.value, channelID: '{{ $id }}' };
 
         query.value = '';
         query.setAttribute('disabled','true');
@@ -125,7 +125,7 @@
     var pusher = new Pusher('820db3c820484c910a8b', {cluster: 'eu'});
 
     // Pusher channel subscription
-    var channel = pusher.subscribe('messages');
+    var channel = pusher.subscribe('messages{{ $id }}');
     channel.bind('message', function(data) {
         console.log('Receiving', data);
         addMessageToBoard(data);
