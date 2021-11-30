@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('chat', function(){
+    // fetch messages if we want history
+    $messages = [];
+    return view('chat', ['messages' => json_encode($messages)]);
 });
+
+Route::post('broadcast', function(Request $request){
+    event(new \App\Events\Message($request->content, $request->user));
+    return 1;
+});
+
