@@ -122,7 +122,7 @@
 
     // Pusher setup
     Pusher.logToConsole = true;
-    var pusher = new Pusher('cd1289282c2b6964869c', {cluster: 'eu'});
+    var pusher = new Pusher('820db3c820484c910a8b', {cluster: 'eu'});
 
     // Pusher channel subscription
     var channel = pusher.subscribe('messages');
