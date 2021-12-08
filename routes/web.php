@@ -13,6 +13,16 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('welcome', function(){
+    // fører til standart startsiden
+    return view('welcome');
+});
+
+// Nyoprettet forside
+Route::get('', function(){
+
+    return view('front');
+});
 
 Route::get('chat', function(){
     // fetch messages if we want history
