@@ -5,58 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CHAT DEMO</title>
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-replace-svg="nest"></script>
 <style>
     body {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        background: #2c2f38;
+        background: #6CAFA9;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    h4{
+        color: #044445;
     }
 
     div#messages {
         height: 60vh;
-        width: 50vw;
+        width: 40vw;
         background: white;
         overflow: auto;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        box-shadow: 0px 0px 19px -4px rgb(0 0 0 / 45%);
+
+       
     }
     .message {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        /* justify-content: space-between; */
         padding: 1rem;
-        border-bottom: 1px solid lightgrey;
+        /* border-bottom: 1px solid lightgrey; */
     }
     .control{
-        width: 50vw;
+        width: 40vw;
         display: flex;
         align-items: center;
         justify-content: center;
         height: 75px;
+        box-shadow: 0px 0px 19px -4px rgb(0 0 0 / 45%);
+        background: #efefef;
+        
+        
     }
     input#query {
-        width: 50vw;
-        height: 100%;
+        width: 45vw;
+        height: 80%;
+        border: none;
+        outline: none;
+        background: #fff;
+        border-radius: 20px;
+        margin: 0 5px;
+        padding: 0 10px;
+        font-family: 'Courier New', Courier, monospace;
+
     }
     input#user {
-        height: 100%;
-        background: white;
+        height: 98%;
+        background: #efefef;
         width: 7vw;
+        border: none;
+        font-family: 'Courier New', Courier, monospace;
+        border-bottom-left-radius: 5px;
     }
+    /*submit btn*/
     button#submit {
         height: 100%;
         width: 130px;
+        font-size: 25px;
+        font-weight: 600;
+        color: #363636;
+        border: none;
+        font-family: 'Courier New', Courier, monospace;
+        border-bottom-right-radius: 5px;
+        box-shadow: -7px 3px 5px -8px rgb(0 0 0 / 21%);
+
     }
+    button#submit:hover{
+        background: #d6d6d6;
+    }
+
+    .content{
+    margin: 0 5px 0 15px;
+    padding: 10px;
+    border-radius: 5px;
+    background: #d4d4d4;
+    }
+
+    a{
+        color: #f2f2f2;
+        opacity: 1;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    a:hover{
+        opacity: .5;
+    }
+
+    p{
+        margin: 15px 0 15px 0;
+    }
+    
+  
+
 </style>
 </head>
 <body>
-    <p>{{ $id ?? '' }} UPDATED</p>
+    <h2>Welcome to {{ $id ?? '' }}. Chat away!</h2>
 <div id="messages"></div>
 
 <div class="control">
     <input type="text" id="user" autocomplete="off">
     <input type="text" id="query">
-    <button id="submit">Go!</button>
+    <button id="submit">Send</button>
+    
 </div>
 
 <template id="message">
@@ -65,6 +129,9 @@
         <div class="content"></div>
     </div>
 </template>
+
+    <p><a href="http://127.0.0.1:8000">Want to try another chat?</a></p>
+
 
 <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 
