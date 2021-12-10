@@ -51,7 +51,19 @@
 </head>
 <body>
     <p>{{ $id ?? '' }} UPDATED</p>
-<div id="messages"></div>
+<div id="messages">
+    @php
+    if ($chatRooms ?? false) {
+        # code...
+        for ($i=0; $i < count($chatRooms); $i++) { 
+            echo "roomID: ".$chatRooms[$i]->chatroomID;
+            echo "<br>";
+            echo "expires: ".$chatRooms[$i]->expireDate;
+            echo "<br>";
+        }
+    }
+@endphp
+</div>
 
 <div class="control">
     <input type="text" id="user" autocomplete="off">
