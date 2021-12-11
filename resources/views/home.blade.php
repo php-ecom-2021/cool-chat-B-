@@ -5,7 +5,7 @@
     <div>
         <div>
             <div>
-                <div>{{ __('Dashboard') }}</div>
+                <!-- <div>{{ __('Dashboard') }}</div> -->
 
                 <div>
                     @if (session('status'))
