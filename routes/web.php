@@ -114,3 +114,8 @@ Route::post('broadcast', function (Request $request) {
     event(new \App\Events\Message($request->channelID, $request->content, $request->user));
     return $request;
 });
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
