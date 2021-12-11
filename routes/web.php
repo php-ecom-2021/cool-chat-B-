@@ -26,10 +26,10 @@ if (!Schema::hasTable('chatrooms')) {
     });
 }
 
-Route::get('', function () {
-    // fører til standart startsiden
-    return view('home');
-});
+// Route::get('home', function () {
+//     // fører til standart startsiden
+//     return view('home');
+// });
 
 // Nyoprettet forside
 Route::get('front', function () {
@@ -37,7 +37,7 @@ Route::get('front', function () {
     DB::delete("DELETE FROM chatrooms WHERE expireDate < NOW()", []);
     $chatRooms = DB::select("Select * from chatrooms");
 
-    return view('front', [
+    return view('home', [
         'chatRooms' => $chatRooms
         ]);
 });
