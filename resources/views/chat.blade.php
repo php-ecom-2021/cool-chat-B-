@@ -11,12 +11,14 @@
 </head>
 <body>
     <section class="flex-container">
+        <!-- Sti virker ikke -->
         <a class="backBtn" href="http://127.0.0.1">Go back</a>
         <h2>Welcome to {{ $id ?? '' }}. Chat away!</h2>
         <div id="messages"></div>
 
         <div class="control">
             <input type="text" id="user" autocomplete="off">
+            <!-- <p>{{ Auth::user()->name }}</p> -->
             <input type="text" id="query">
             <button id="submit">Send</button>
             
@@ -24,6 +26,7 @@
 
         <template id="message">
             <div class="message">
+                
                 <div class="user"></div>
                 <div class="content"></div>
             </div>

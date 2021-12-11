@@ -53,6 +53,10 @@ p{
     background-color: rgb(68, 66, 192);
 }
 
+.logout-btn {
+    background-color: rgb(106, 105, 117);
+}
+
 /* ------- Startside -------*/
 .flex-container{
     display: flex;

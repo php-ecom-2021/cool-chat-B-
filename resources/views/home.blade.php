@@ -17,10 +17,10 @@
 
         <h2>Choose a chatroom to start chatting:</h2>
         <div class="chatrooms">
-        <a href="/chat">Public chat</a>
-        @foreach ($chatRooms as $chatRoom)
-        <a href="/chat/{{ $chatRoom->chatroomID }}">[{{ $chatRoom->chatroomID }} Chat]</a>
-        @endforeach
+            
+            @foreach ($chatRooms as $chatRoom)
+            <a href="/chat/{{ $chatRoom->chatroomID }}">[{{ $chatRoom->chatroomID }} Chat]</a>
+            @endforeach
         </div>
         <div class="newChatField">
             <a id="roomLink" href="/">Create new chat</a>
