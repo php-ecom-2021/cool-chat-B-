@@ -13,17 +13,17 @@ class Message implements ShouldBroadcast
     public $user;
     public $channelID;
 
-    public function __construct(int $channelID, string $content, string $user)
+    public function __construct($channelID, string $content, string $user)
     {
         $this->content = $content;
         $this->user = $user;
-        $this->channelID = $channelID;
+        $this->channelID = $channelID ?? "";
         
     }
 
     public function broadcastOn()
     {
-        return ['messages', 'messages'.$this->channelID];
+        return ['messages'.$this->channelID];
     }
 
     public function broadcastAs()
