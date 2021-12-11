@@ -1,26 +1,3 @@
-# Possible setup required beforehand:
-install php 8
-```
-sudo apt install software-properties-common
-sudo add-apt-repository ppa:ondrej/php
-sudo apt update
-sudo apt install php8.0
-```
-install composer
-```
-sudo apt install composer
-```
-install the project
-```
-composer install --ignore-platform-reqs
-```
-
-clone the .env.example and rename it .env
-```
-php artisan serve
-```
-click "generate keys" -> reload
-
 # connect to mysql 
 IMPORTANT: replace **phpchat_mysql_1** with the name from docker
 ```
