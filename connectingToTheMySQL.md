@@ -1,7 +1,7 @@
 # connect to mysql 
 IMPORTANT: replace **phpchat_mysql_1** with the name from docker
 ```
-docker exec -it **phpchat_mysql_1** /bin/bash
+docker exec -it phpchat_mysql_1 /bin/bash
 ```
 ```
 mysql -uroot -p -A
