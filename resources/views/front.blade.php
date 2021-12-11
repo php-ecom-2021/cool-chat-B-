@@ -32,6 +32,24 @@
     a:hover{
         opacity: .5;
     }
+    
+    .newChatField{
+        margin-top: 5rem
+    }
+
+    .newChatField a{
+    text-align: center; 
+    display: block;
+}
+
+    .newChatField input{
+    width: 100%   
+    }
+
+    .DEBUG{
+        color:red;
+        margin-top: 5rem
+    }
 </style>
 </head>
 <body>
@@ -41,12 +59,31 @@
     <h2>Choose a chatroom to start chatting:</h2>
     <div class="chatrooms">
     <a href="/chat">Public chat</a>
-    <a href="/chat/1">chat 1</a>
-    <a href="/chat/2">chat 2</a>
-    <a href="/chat/3">chat 3</a>
-    <a href="/chat/4">chat 4</a>
+    @foreach ($chatRooms as $chatRoom)
+    <a href="/chat/{{ $chatRoom->chatroomID }}">[{{ $chatRoom->chatroomID }} Chat]</a>
+    @endforeach
     </div>
+    <div class="newChatField">
+        <a id="roomLink" href="/">Create new chat</a>
+        <input type="text" id="newRoom" >
+    </div>
+    <a class="DEBUG" href="/expire">[DEBUG] Expire all chats</a>
 
+    <script>
+let input = document.querySelector("#newRoom");
+let link = document.querySelector("#roomLink");
+input.addEventListener('input', ()=>{
+    link.href = "/chat/"+input.value
+    link.text = `Create new ${input.value} chat`
+    // TODO: check if the value is already created and replace "create" with "join"
+});
+input.addEventListener('keydown', (e)=>{
+    console.log(e.code)
+    if (e.code == ("Enter" || "NumpadEnter")) {
+        window.location = "/chat/"+input.value
+    }
+});
+    </script>
 
 </body>
 </html>

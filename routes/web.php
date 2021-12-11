@@ -34,7 +34,12 @@ Route::get('welcome', function () {
 // Nyoprettet forside
 Route::get('', function () {
 
-    return view('front');
+    DB::delete("DELETE FROM chatrooms WHERE expireDate < NOW()", []);
+    $chatRooms = DB::select("Select * from chatrooms");
+
+    return view('front', [
+        'chatRooms' => $chatRooms
+        ]);
 });
 
 Route::get('chat', function () {
@@ -57,9 +62,9 @@ Route::get('channels', function () {
     return view('channels', ['chatRooms' => $chatRooms]);
 });
 
-Route::get('channels/expire', function () {
+Route::get('/expire', function () {
     DB::delete("DELETE FROM chatrooms", []);
-    return redirect('channels');
+    return redirect('/');
 });
 
 Route::get('chat/{id}', function ($id) {

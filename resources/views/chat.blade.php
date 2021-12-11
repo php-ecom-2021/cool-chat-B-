@@ -108,11 +108,15 @@
         margin: 15px 0 15px 0;
     }
     
+    .backBtn{
+        align-self: flex-start
+    }
   
 
 </style>
 </head>
 <body>
+    <a class="backBtn" href="http://127.0.0.1">back</a>
     <h2>Welcome to {{ $id ?? '' }}. Chat away!</h2>
 <div id="messages"></div>
 
