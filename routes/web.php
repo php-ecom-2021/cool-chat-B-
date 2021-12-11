@@ -26,13 +26,13 @@ if (!Schema::hasTable('chatrooms')) {
     });
 }
 
-// Route::get('home', function () {
+// Route::get('front', function () {
 //     // fører til standart startsiden
-//     return view('home');
+//     return view('front');
 // });
 
 // Nyoprettet forside
-Route::get('front', function () {
+Route::get('', function () {
 
     DB::delete("DELETE FROM chatrooms WHERE expireDate < NOW()", []);
     $chatRooms = DB::select("Select * from chatrooms");

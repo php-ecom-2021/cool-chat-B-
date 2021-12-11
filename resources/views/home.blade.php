@@ -9,7 +9,7 @@
             </div>
         @endif
 
-        {{ __('You are logged in!') }}
+        <!-- {{ __('You are logged in!') }} -->
     </div>
 
     <section class="flex-container">
