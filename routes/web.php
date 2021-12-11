@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +18,13 @@ use Illuminate\Support\Facades\DB;
 | contains the "web" middleware group. Now create something great!
 |
 */
-# TODO: generate table if not exists
+# generate table if not exists
+if (!Schema::hasTable('chatrooms')) {
+    Schema::create('chatrooms', function (Blueprint $table) {
+		$table->string('chatroomID', 100);
+		$table->dateTime('expireDate');
+    });
+}
 
 Route::get('welcome', function () {
     // fører til standart startsiden
