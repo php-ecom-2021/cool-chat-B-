@@ -18,7 +18,6 @@
 
         <div class="control">
             <input type="text" id="user" autocomplete="off">
-            <!-- <p>{{ Auth::user()->name }}</p> -->
             <input type="text" id="query">
             <button id="submit">Send</button>
             
@@ -32,7 +31,7 @@
             </div>
         </template>
 
-        <p><a href="http://127.0.0.1:8000">Want to try another chat?</a></p>
+        <p><a href="http://127.0.0.1:8000">  Want to try another chat?</a></p>
     </section>
 
 
@@ -42,7 +41,11 @@
     <script>
         // create a random user
         let user = document.querySelector('#user');
-        user.value = 'User #' + Math.floor(Math.random() * 100);
+        @if (Auth::user())
+        user.value = "{{ Auth::user()->name }}";
+            @else
+        user.value = ('User #' + Math.floor(Math.random() * 100));
+        @endif
 
         // method to add message to our chatbox
         function addMessageToBoard(message){
