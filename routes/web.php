@@ -85,7 +85,7 @@ Route::get('chat/{id}', function ($id) {
         $databaseIds[$i] = $databaseIds[$i]->chatroomID;
     }
     // expires in 5 minutes
-    $expires = date("Y-m-d H:i:s", strtotime("+5 minutes"));
+    $expires = date("Y-m-d H:i:s", strtotime("+15 minutes"));
     // if chatroom exists after expired rooms are cleared
     if (in_array($id, $databaseIds)) {
         // update the expireDate 
