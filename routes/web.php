@@ -55,13 +55,6 @@ Route::get('chat', function () {
         ]);
 });
 
-Route::get('channels', function () {
-    DB::delete("DELETE FROM chatrooms WHERE expireDate < NOW()", []);
-    $chatRooms = DB::select("Select * from chatrooms");
-
-    return view('channels', ['chatRooms' => $chatRooms]);
-});
-
 Route::get('/expire', function () {
     DB::delete("DELETE FROM chatrooms", []);
     return redirect('/');
