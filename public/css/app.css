@@ -35,7 +35,7 @@ p{
     list-style-type: none;
     padding: 0;
     display: flex;
-
+    margin-right: 40px;
 }
 
 .nav-item {
@@ -46,15 +46,21 @@ p{
 }
 
 .login-btn {
-    background-color: rgb(71, 132, 245);
+    background-color: #00889f;
 }
 
 .register-btn {
-    background-color: rgb(68, 66, 192);
+    background-color: #005260;
 }
 
 .logout-btn {
-    background-color: rgb(106, 105, 117);
+    background-color: #01505D;
+    text-align: center;
+
+}
+
+.login-btn:hover, .register-btn:hover, .logout-btn:hover{
+    box-shadow: none;
 }
 
 /* ------- Startside -------*/
@@ -97,6 +103,17 @@ width: 100%
     padding: 20px;
 }
 
+.btn-primary{
+       font-family: 'Courier New', Courier, monospace;
+}
+
+.form-check{
+    margin-top: 10px;
+}
+
+.login-div{
+    margin: 30px 0 5px 0;
+}
 
 /* ------- Chat sider -------*/
 div#messages {
