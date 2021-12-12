@@ -8,7 +8,7 @@
 </head>
 <body>
     <a href="../chat/">[All Chat]</a>
- {{-- possibly add js timer to show when expires --}}
+    {{-- possibly add js timer to show when expires --}}
     @foreach ($chatRooms as $chatRoom)
     <a href="../chat/{{ $chatRoom->chatroomID }}">[{{ $chatRoom->chatroomID }} Chat]</a>
     @endforeach
@@ -18,13 +18,13 @@
         <a href="/channels/expire">Expire all chats</a>
 
         <script>
-let input = document.querySelector("#newRoom");
-let link = document.querySelector("#roomLink");
-input.addEventListener('input', ()=>{
-    link.href = "../chat/"+input.value
-    link.text = `Create new ${input.value} chat`
-    // TODO: check if the value is already created and replace "create" with "join"
-});
+            let input = document.querySelector("#newRoom");
+            let link = document.querySelector("#roomLink");
+            input.addEventListener('input', ()=>{
+                link.href = "../chat/"+input.value
+                link.text = `Create new ${input.value} chat`
+                // TODO: check if the value is already created and replace "create" with "join"
+            });
         </script>
     </div>
 </body>

@@ -31,7 +31,7 @@ if (!Schema::hasTable('chatrooms')) {
 //     return view('front');
 // });
 
-// Nyoprettet forside
+// Forside
 Route::get('', function () {
 
     DB::delete("DELETE FROM chatrooms WHERE expireDate < NOW()", []);
