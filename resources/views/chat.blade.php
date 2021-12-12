@@ -43,6 +43,8 @@
         let user = document.querySelector('#user');
         @if (Auth::user())
         user.value = "{{ Auth::user()->name }}";
+        // if logged in, don't change name
+        user.readOnly = true;
             @else
         user.value = ('User #' + Math.floor(Math.random() * 100));
         @endif
