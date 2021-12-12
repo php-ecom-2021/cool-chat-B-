@@ -20,7 +20,7 @@
     <div id="app">
         <nav>
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
 
@@ -40,7 +40,7 @@
                                 </li>
                             @endif
                         @else
-                            <li class="dropdown">
+                            <li>
                                 <p>User: <strong>{{ Auth::user()->name }}</strong></p>
 
                                 <div class="nav-item logout-btn">
